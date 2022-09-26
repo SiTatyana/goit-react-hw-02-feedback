@@ -41,14 +41,15 @@ export default class Feedback extends Component {
         const total= this.countTotalFeedback();
         const positivePercentage = this.countPositiveFeedbackPercentage("good");
         const { good, neutral, bad } = this.state;
+        const options = ["good", "neutral", "bad"];
        return ( 
         <div>
             <Section title="Please leave feedback">
                 <FeedbackOptions 
-                onLeaveFeedback={this.onLeaveFeedback} />
+                onLeaveFeedback={this.onLeaveFeedback} options={options} />
             </Section>
             <Section title="Statistics">
-                {!total ? <div> Unfortunately there are no reviews, but you can be the first ☺️</div> :
+                {!total ? <div> Unfortunately there are no reviews, but you can be the first ☺️ </div> :
                 <Statistics
                 good = {good}
                 neutral = {neutral}
